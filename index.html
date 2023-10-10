@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Blog Home - Start Bootstrap Template</title>
+    <title>Inazuma Teams</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="img/raimon.jpg" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
@@ -39,9 +39,11 @@
         <div class="row">
             <!-- Blog entries-->
             <div class="col-lg-2"></div>
-            <div class="col-lg-8">
+            <div class="col-lg-8" style="display: none;" id="team_info">
+            </div>
+            <div class="col-lg-8" id="main_page">
                 
-                <div id="form_Element" class="form_Create card" style="display: none;">
+                <div id="form_Element" class="card formCreate" style="display: none;">
                     <form class="flexObjCol">
                         <div class="form-group row">
                           <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
@@ -58,13 +60,13 @@
                           <div class="form-group row">
                             <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Date of creation</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control form-control-lg" id="eq_description" placeholder="02/12/1999">
+                              <input type="text" class="form-control form-control-lg" id="eq_date" placeholder="02/12/1999">
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Image</label>
                             <div class="col-sm-10">
-                              <input type="file" class="form-control form-control-lg" id="eq_img" placeholder="Is the greates team!">
+                              <input type="text" class="form-control form-control-lg" id="eq_img" placeholder="url of image">
                             </div>
                           </div>  
                           <br>
@@ -75,52 +77,9 @@
                 <!-- Nested row for non-featured blog posts-->
                 <!-- 1º Column -->
                 <div class="row" id="main_Body">
-                    <div class="flexObj">
+                    <div class="flexObj" id="teams_zone">
                         <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src="img/images.jpeg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2023</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
-                        <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src="img/raimon.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2023</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
-                        <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src="img/raimon.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2023</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
-                        <!-- Blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top"
-                                    src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                            <div class="card-body">
-                                <div class="small text-muted">January 1, 2023</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- Create / Edit buttons-->
