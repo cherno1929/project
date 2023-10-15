@@ -10851,6 +10851,28 @@ textarea.form-control-lg {
   justify-content: space-between;
 }
 
+.img_Escudo {
+  max-height: 150px;
+}
 
+.downBord {
+  border-right: 2px groove;
+  border-bottom: 2px groove;
+  border-color: gray;
+}
+
+.centerImgTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centrado_TemInf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 2px solid;
+  border-color: grey;
+}
 
 

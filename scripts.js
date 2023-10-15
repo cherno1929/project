@@ -92,7 +92,7 @@ function addToDomTeam(eq){
         </div>
     </div>`
 }
-function displayMoreInfoTeam(){
+function displayMoreInfoTeam(team){
     showHide("sub_zone")
     showHide("main_page")
 }
@@ -120,10 +120,10 @@ function getAllHtmlSoccers(soccers){
     </div>`
     });}else{
         text = `<div class="alert alert-danger alertNoSoccers" role="alert">
-        <h4 class="alert-heading">Well done!</h4>
-        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+        <h4 class="alert-heading">Error</h4>
+        <p>There are not players yet in this team</p>
         <hr>
-        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        <p class="mb-0">Please add players to this team</p>
       </div>`
     }
     return text
@@ -132,7 +132,7 @@ function more_info(eq_name){
     if (! teams.has(eq_name)){
         alert("This team doesn't exist")
     }else{
-        displayMoreInfoTeam()
+        displayMoreInfoTeam(teams.get(eq_name))
         txt = getAllHtmlSoccers(teams.get(eq_name).soccers)
         document.getElementById("soccers").innerHTML = txt
     }
