@@ -7,16 +7,16 @@ class Team {
         this.descr = descr
         this.img = img
         this.date = date
-        if (soccers === null || soccers === undefined){
+        if (soccers === null || soccers === undefined) {
             this.soccers = []
-        }else{
+        } else {
             this.soccers = soccers
         }
     }
 }
 
 class Soccer {
-    constructor(name,age,img){
+    constructor(name, age, img) {
         this.name = name
         this.age = age
         this.img = img
@@ -24,21 +24,21 @@ class Soccer {
 }
 
 let soccers1 = []
-let soccer1 = new Soccer("Arion",15,"soccers_img/descarga.jpeg")
-let soccer2 = new Soccer("Arion",15,"soccers_img/descarga.jpeg")
-let soccer3 = new Soccer("Arion",15,"soccers_img/descarga.jpeg")
-let soccer4 = new Soccer("Arion",15,"soccers_img/descarga.jpeg")
-let soccer5 = new Soccer("Arion",15,"soccers_img/descarga.jpeg")
-let soccer6 = new Soccer("Arion",15,"soccers_img/descarga.jpeg")
-soccers1.push(soccer1,soccer2,soccer3,soccer4,soccer5,soccer6)
+let soccer1 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
+let soccer2 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
+let soccer3 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
+let soccer4 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
+let soccer5 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
+let soccer6 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
+soccers1.push(soccer1, soccer2, soccer3, soccer4, soccer5, soccer6)
 
-let team1 = new Team("Dark Knights","The most powerfull Knights!","img/images.jpeg","27/08/1999");
-let team2 = new Team("Raimon","Old, but still good","img/raimon.jpg","18/07/1985");
-let team3 = new Team("New Raimon","The new Version!","img/newraimon.png","27/08/2008",soccers1);
+let team1 = new Team("Dark Knights", "The most powerfull Knights!", "img/images.jpeg", "27/08/1999");
+let team2 = new Team("Raimon", "Old, but still good", "img/raimon.jpg", "18/07/1985");
+let team3 = new Team("New Raimon", "The new Version!", "img/newraimon.png", "27/08/2008", soccers1);
 
-teams.set(team1.name,team1)
-teams.set(team2.name,team2)
-teams.set(team3.name,team3)
+teams.set(team1.name, team1)
+teams.set(team2.name, team2)
+teams.set(team3.name, team3)
 
 teams.forEach(element => {
     addToDomTeam(element)
@@ -54,7 +54,7 @@ function showHide(element) {
         elm.style.display = "none"
     }
 }
-function goBackToTeams(){
+function goBackToTeams() {
     displayMoreInfoTeam()
     document.getElementById("main_page").style = ""
 }
@@ -78,10 +78,10 @@ function createTeam() {
     displayCreateForm()
 }
 function addTeam(eq) {
-    teams.set(eq.name,eq)
+    teams.set(eq.name, eq)
     addToDomTeam(eq)
 }
-function addToDomTeam(eq){
+function addToDomTeam(eq) {
     document.getElementById("teams_zone").innerHTML += `<div class="card mb-4" id="eq_${eq.name}">
                 <img class="card-img-top" src="${eq.img}"/>
     <div class="card-body">
@@ -92,14 +92,15 @@ function addToDomTeam(eq){
         </div>
     </div>`
 }
-function displayMoreInfoTeam(team){
+function displayMoreInfoTeam(team) {
     showHide("sub_zone")
     showHide("main_page")
 }
-function getAllHtmlSoccers(soccers){
+function getAllHtmlSoccers(soccers) {
     let text = ""
-    if (soccers.length > 0){soccers.forEach(element => {
-        text += `<div class="col mb-5">
+    if (soccers.length > 0) {
+        soccers.forEach(element => {
+            text += `<div class="col mb-5">
         <div class="card h-100">
             <!-- Product image-->
             <img class="card-img-top" src="${element.img}"/>
@@ -118,7 +119,8 @@ function getAllHtmlSoccers(soccers){
             </div>
         </div>
     </div>`
-    });}else{
+        });
+    } else {
         text = `<div class="alert alert-danger alertNoSoccers" role="alert">
         <h4 class="alert-heading">Error</h4>
         <p>There are not players yet in this team</p>
@@ -126,14 +128,14 @@ function getAllHtmlSoccers(soccers){
         <p class="mb-0">Please add players to this team</p>
       </div>`
     }
+    text += ``
     return text
 }
-function more_info(eq_name){
-    if (! teams.has(eq_name)){
+function more_info(eq_name) {
+    if (!teams.has(eq_name)) {
         alert("This team doesn't exist")
-    }else{
+    } else {
         displayMoreInfoTeam(teams.get(eq_name))
-        txt = getAllHtmlSoccers(teams.get(eq_name).soccers)
-        document.getElementById("soccers").innerHTML = txt
+        document.getElementById("soccers").innerHTML = getAllHtmlSoccers(teams.get(eq_name).soccers)
     }
 } 
