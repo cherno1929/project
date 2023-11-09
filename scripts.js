@@ -32,13 +32,23 @@ let soccer5 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
 let soccer6 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
 soccers1.push(soccer1, soccer2, soccer3, soccer4, soccer5, soccer6)
 
+let soccers2 = []
+soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
+soccers2.push(new Soccer("Nathan", 16, "soccers_img/nathan.png"))
+soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
+soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
+soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
+soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
+
 let team1 = new Team("Dark Knights", "The most powerfull Knights!", "img/images.jpeg", "27/08/1999");
 let team2 = new Team("Raimon", "Old, but still good", "img/raimon.jpg", "18/07/1985");
 let team3 = new Team("New Raimon", "The new Version!", "img/newraimon.png", "27/08/2008", soccers1);
+let team4 = new Team("Emperadores Oscuros", "Back again", "img/emOsc.png", "22/04/20010",soccers2);
 
 teams.set(team1.name, team1)
 teams.set(team2.name, team2)
 teams.set(team3.name, team3)
+teams.set(team4.name, team4)
 
 teams.forEach(element => {
     addToDomTeam(element)
@@ -115,7 +125,7 @@ function getAllHtmlSoccers(soccers) {
             </div>
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"><a class="btn btn-outline-dark mt-auto">Modify info</a></div>
+                
             </div>
         </div>
     </div>`

@@ -2,156 +2,178 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Inazuma Teams</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="img/raimon.jpg" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Inazuma Teams</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="img/raimon.jpg" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body
-    background="back_img/pngtree-seamless-black-and-white-sporting-items-pattern-with-classic-football-or-picture-image_1832773.jpg"
-    style="">
-    <!-- Responsive navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand">FOOTBALL LEAGUE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" onclick="turnDark()">Dark mode</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Page content-->
+  background="back_img/pngtree-seamless-black-and-white-sporting-items-pattern-with-classic-football-or-picture-image_1832773.jpg"
+  style="">
+  <!-- Responsive navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-
-        <!-- SUB_ZONE -->
-        <div id="sub_zone" class="card team" style="display: none;">
-            
-            <div class="container downBord" id="eqInfo">
-                <div class="row">
-                    <div class="col-md-4 cen centerImgTeam">
-                        <img id="imgEq" class="img_Escudo" src="img/descarga.png">
-                    </div>
-                    <div class="col-md-8 centrado_TemInf">
-                        
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputPassword" placeholder="Raimon">
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputPassword" placeholder="Is a old team that...">
-                            </div>
-                          </div>
-
-                          <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Date</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputPassword" placeholder="09/12/1997">
-                            </div>
-                          </div>
-                          <br>
-                          <div class="centerButtons">
-                            <button class="btn btn-outline-danger btnGoBack" onclick="goBackToTeams()">Delete</button>
-                          </div>
-                          <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="soccers">
-                </div>
-                <button class="btn btn-outline-primary btnGoBack" onclick="goBackToTeams()">Go Back</button>
-                <button class="btn btn-outline-primary btnGoBack" onclick="guardarCambios()">Save</button>
-                <br>
-            </div>
-        </div>
-        <br>
-        <!-- SUB_ZONE -->
-
-        <div class="row" id="main_page">
-            <!-- Blog entries-->
-            <div class="col-lg-2"></div>
-
-            <div class="col-lg-8">
-
-                <div id="form_Element" class="card formCreate" style="display: none;">
-                    <form class="flexObjCol">
-                        <div class="form-group row">
-                          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control form-control-lg" id="eq_name" placeholder="Inazuma Eleven">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Description</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control form-control-lg" id="eq_description" placeholder="Is the greates team!">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Date of creation</label>
-                            <div class="col-sm-10">
-                              <input type="date" class="form-control form-control-lg" id="eq_date" placeholder="02/12/1999">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Image</label>
-                            <div class="col-sm-10">
-                              <input type="url" class="form-control form-control-lg" id="eq_img" placeholder="url of image">
-                            </div>
-                          </div>  
-                          <br>
-                          <button type="submit" class="btn btn-outline-secondary" onclick="createTeam()">Confirm</button>
-                      </form>
-                </div>
-
-                <!-- Nested row for non-featured blog posts-->
-                <!-- 1º Column -->
-                <div class="row" id="main_Body">
-                    <div class="flexObj" id="teams_zone">
-                        <!-- Blog post-->
-                      
-                    </div>
-                </div>
-                <!-- Create / Edit buttons-->
-                <nav aria-label="...">
-                    <ul class="pagination pagination-lg">
-                        <li class="page-item"><a class="page-link" onclick="displayCreateForm()" id="create_Button">Create team</a></li>
-                    </ul>
-                </nav>
-
-            </div>
-            <!-- Side widgets-->
-        </div>
+      <a class="navbar-brand">FOOTBALL LEAGUE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="turnDark()">Dark mode</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+        </ul>
+      </div>
     </div>
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Made by <strong>Cherno</strong></p>
+  </nav>
+  <!-- Page content-->
+  <div class="container">
+
+    <!-- SUB_ZONE -->
+    <div id="sub_zone" class="card team" style="display: none;">
+
+      <div class="container downBord" id="eqInfo">
+        <div class="row">
+          <div class="col-md-4 cen centerImgTeam">
+            <img id="imgEq" class="img_Escudo" src="img/descarga.png">
+          </div>
+          <div class="col-md-8 centrado_TemInf">
+
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword" placeholder="Raimon">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword" placeholder="Is a old team that...">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Date</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword" placeholder="09/12/1997">
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label biggerText" for="flexCheckDefault">
+                Classified in league
+              </label>
+            </div>
+            <br>
+            <div class="buttonsFlexSDE">
+              <div class="centerButtons">
+                <button class="btn btn-outline-warning btnGoBack" onclick="goBackToTeams()">Edit</button>
+              </div>
+              <div class="centerButtons">
+                <button class="btn btn-outline-danger btnGoBack" onclick="goBackToTeams()">Delete</button>
+              </div>
+            </div>
+            <br>
+          </div>
         </div>
-    </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="scripts.js"></script>
+      </div>
+
+      <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="soccers">
+        </div>
+        <button class="btn btn-outline-primary btnGoBack" onclick="goBackToTeams()">Go Back</button>
+        <br>
+      </div>
+    </div>
+    <br>
+    <!-- SUB_ZONE -->
+
+    <div class="row" id="main_page">
+      <!-- Pagina de creación-->
+      <div class="col-lg-2"></div>
+
+      <div class="col-lg-8">
+
+        <div id="form_Element" class="card formCreate formMargins" style="display: none;">
+          <form class="flexObjCol">
+            <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-lg" id="eq_name" placeholder="Inazuma Eleven">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Description</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-lg" id="eq_description"
+                  placeholder="Is the greates team!">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Date of creation</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control form-control-lg" id="eq_date" placeholder="02/12/1999">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Image</label>
+              <div class="col-sm-10">
+                <input type="url" class="form-control form-control-lg" id="eq_img" placeholder="url of image">
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label biggerText" for="flexCheckDefault">
+                Classified in league
+              </label>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-outline-secondary" onclick="createTeam()">Confirm</button>
+          </form>
+        </div>
+
+        <!-- Nested row for non-featured blog posts-->
+        <!-- 1º Column -->
+        <div class="row" id="main_Body">
+          <div class="flexObj" id="teams_zone">
+            <!-- Blog post-->
+
+          </div>
+        </div>
+        <!-- Create / Edit buttons-->
+        <nav aria-label="...">
+          <ul class="pagination pagination-lg">
+            <li class="page-item"><a class="page-link" onclick="displayCreateForm()" id="create_Button">Create team</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+      <!-- Side widgets-->
+    </div>
+  </div>
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Made by <strong>Cherno</strong></p>
+    </div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="scripts.js"></script>
 </body>
+
 </html>
