@@ -34,21 +34,33 @@ soccers1.push(soccer1, soccer2, soccer3, soccer4, soccer5, soccer6)
 
 let soccers2 = []
 soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
-soccers2.push(new Soccer("Nathan", 16, "soccers_img/nathan.png"))
+soccers2.push(new Soccer("Nathan", 16, "soccers_img/nathan.jpg"))
 soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
 soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
 soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
 soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
 
 let team1 = new Team("Dark Knights", "The most powerfull Knights!", "img/images.jpeg", "27/08/1999");
-let team2 = new Team("Raimon", "Old, but still good", "img/raimon.jpg", "18/07/1985");
+let team2 = new Team("Raimon", "Old, but still good", "img/raimon.jpg", "18/07/1985",soccers1);
 let team3 = new Team("New Raimon", "The new Version!", "img/newraimon.png", "27/08/2008", soccers1);
-let team4 = new Team("Emperadores Oscuros", "Back again", "img/emOsc.png", "22/04/20010",soccers2);
+let team4 = new Team("Emperadores Oscuros", "Back again", "img/emOsc.png", "22/04/2010",soccers2);
+let team5 = new Team("Instituto Zeus", "Gods in the game", "https://static.wikia.nocookie.net/inazuma/images/f/ff/Escudo_Zeus_FF.png/revision/latest/scale-to-width-down/110?cb=20210620190427&path-prefix=es", "3/01/1989",soccers2);
+let team6 = new Team("Raimon A", "Secundary of the original", "https://static.wikia.nocookie.net/inazuma/images/b/b3/Ultra_Raimon_%28Logo%29.png/revision/latest?cb=20151228011758&path-prefix=es", "02/07/2002",soccers2);
+let team7 = new Team("Galaxy Eleven", "The next champion in the galaxy!", "https://static.wikia.nocookie.net/inazuma/images/b/bd/Earth_Eleven_Emblema.png/revision/latest?cb=20210628231658&path-prefix=es", "30/07/2021",soccer1);
+let team8 = new Team("Genesis", "The monsters of the space", "https://static.wikia.nocookie.net/inazuma/images/a/a2/Logo_de_g%C3%A9nesis.png/revision/latest?cb=20120423114023&path-prefix=es", "???",soccers2);
+let team9 = new Team("Gir", "The powerfull lovers of the future!", "https://static.wikia.nocookie.net/inazuma/images/1/11/Gir_Emblema.png/revision/latest?cb=20210628154723&path-prefix=es", "??/??/2300",soccers2);
+let team10 = new Team("Dark angel", "Divine glory to the dark gods!!", "https://static.wikia.nocookie.net/inazuma/images/1/1b/%C3%81ngel_Oscuro_Emblema.png/revision/latest?cb=20141002231431&path-prefix=es", "06/06/1666",soccers1);
 
 teams.set(team1.name, team1)
 teams.set(team2.name, team2)
 teams.set(team3.name, team3)
 teams.set(team4.name, team4)
+teams.set(team5.name, team5)
+teams.set(team6.name, team6)
+teams.set(team7.name, team7)
+teams.set(team8.name, team8)
+teams.set(team9.name, team9)
+teams.set(team10.name, team10)
 
 teams.forEach(element => {
     addToDomTeam(element)
@@ -79,6 +91,7 @@ function displayCreateForm() {
 }
 
 function createTeam() {
+    /*
     let name = document.getElementById("eq_name").value
     let descr = document.getElementById("eq_description").value
     let img = document.getElementById("eq_img").value
@@ -86,6 +99,7 @@ function createTeam() {
     let new_team = new Team(name, descr, img, date)
     addTeam(new_team)
     displayCreateForm()
+    */
 }
 function addTeam(eq) {
     teams.set(eq.name, eq)
@@ -146,6 +160,7 @@ function more_info(eq_name) {
         alert("This team doesn't exist")
     } else {
         displayMoreInfoTeam(teams.get(eq_name))
+        document.getElementById("imgEq").src = teams.get(eq_name).img
         document.getElementById("soccers").innerHTML = getAllHtmlSoccers(teams.get(eq_name).soccers)
     }
 } 
