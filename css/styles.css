@@ -4294,7 +4294,6 @@ fieldset:disabled .btn {
   align-items: center;
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
-  opacity: 0.9;
 }
 
 .navbar>.container,
@@ -4788,7 +4787,6 @@ fieldset:disabled .btn {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
-  opacity: 0.9;
 }
 
 .card>hr {
@@ -8783,7 +8781,6 @@ fieldset:disabled .btn {
 .py-5 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
-  opacity: 0.9;
 }
 
 .pt-0 {
@@ -12618,10 +12615,6 @@ fieldset:disabled .btn {
   }
 }
 
-.formCreate {
-  opacity: 1;
-}
-
 .flexObj {
   display: flex;
   flex-direction: row;
@@ -12641,6 +12634,7 @@ fieldset:disabled .btn {
 }
 
 .downBord {
+  border-top: 2px groove;;
   border-right: 2px groove;
   border-bottom: 2px groove;
   border-color: gray;
@@ -12658,6 +12652,7 @@ fieldset:disabled .btn {
   justify-content: center;
   border-left: 2px solid;
   border-color: grey;
+  margin-top: 10px;
 }
 
 .centerButtons {
@@ -12674,4 +12669,26 @@ fieldset:disabled .btn {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.subElementDivForm {
+  margin: auto;
+  border: grey 1px solid;
+}
+
+.subElementForm {
+  margin: 20px;
+}
+
+.submitSubForm {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.mainFormElement{
+  margin: 25px;
+}
+
+.btnConfElem{
+
 }

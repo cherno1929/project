@@ -19,7 +19,7 @@
   <!-- Responsive navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand">FOOTBALL LEAGUE</a>
+      <a class="navbar-brand">INAZUMA TEAMS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
           class="navbar-toggler-icon"></span></button>
@@ -77,7 +77,7 @@
             <br>
             <div class="buttonsFlexSDE">
               <div class="centerButtons">
-                <button class="btn btn-outline-warning btnGoBack" onclick="goBackToTeams()">Edit</button>
+                <button class="btn btn-outline-warning btnGoBack" onclick="goBackToTeams()">Save Changes</button>
               </div>
               <div class="centerButtons">
                 <button class="btn btn-outline-danger btnGoBack" onclick="goBackToTeams()">Delete</button>
@@ -91,7 +91,34 @@
       <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="soccers">
         </div>
-        <button class="btn btn-outline-primary btnGoBack" onclick="goBackToTeams()">Go Back</button>
+        <!--SUB ELEMENT FORM-->
+        <div class="subElementDivForm">
+          <form class="subElementForm">
+            <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-lg" id="eq_img"
+                  placeholder="Name of soccer like 'El bicho'">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Age</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control form-control-lg" id="eq_img" placeholder="Age of soccer">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Image</label>
+              <div class="col-sm-10">
+                <input type="url" class="form-control form-control-lg" id="eq_img" placeholder="url of image">
+              </div>
+            </div>
+          </form>
+          <button type="submit" class="btn btn-outline-success submitSubForm">Add new Soccer</button>
+        </div>
+        <br>
+        <button class="btn btn-outline-primary submitSubForm" onclick="goBackToTeams()">Go Back</button>
         <br>
       </div>
     </div>
@@ -104,8 +131,8 @@
 
       <div class="col-lg-8">
 
-        <div id="form_Element" class="card formCreate formMargins" style="display: none;">
-          <form class="flexObjCol">
+        <div id="form_Element" class="card" style="display: none;">
+          <form class="flexObjCol mainFormElement">
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
               <div class="col-sm-10">
@@ -140,7 +167,7 @@
             </div>
 
             <br>
-            <button type="submit" class="btn btn-outline-secondary" onclick="createTeam()">Confirm</button>
+            <button type="submit" class="btn btn-outline-secondary btnConfElem" onclick="createTeam()">Confirm</button>
           </form>
         </div>
 
