@@ -12690,5 +12690,5 @@ fieldset:disabled .btn {
 }
 
 .btnConfElem{
-
+  max-width: 25%;
 }
