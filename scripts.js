@@ -22,34 +22,39 @@ class Soccer {
         this.img = img
     }
 }
-
+/*
 let soccers1 = []
-let soccer1 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
-let soccer2 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
-let soccer3 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
+let soccer1 = new Soccer("Mark", 15, "https://static.wikia.nocookie.net/inazuma/images/f/f9/%28IJ%29_Mark_%28PR%29.png/revision/latest?cb=20230909202000&path-prefix=es")
+let soccer2 = new Soccer("Nathan", 17, "https://static.wikia.nocookie.net/inazuma/images/6/64/%28IJ%29_Nathan.png/revision/latest?cb=20230909202003&path-prefix=es")
+let soccer3 = new Soccer("Jack", 15, "https://static.wikia.nocookie.net/inazuma/images/6/69/%28IJ%29_Jack.png/revision/latest?cb=20230909201948&path-prefix=es")
 let soccer4 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
 let soccer5 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
 let soccer6 = new Soccer("Arion", 15, "soccers_img/descarga.jpeg")
 soccers1.push(soccer1, soccer2, soccer3, soccer4, soccer5, soccer6)
 
 let soccers2 = []
-soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
-soccers2.push(new Soccer("Nathan", 16, "soccers_img/nathan.jpg"))
-soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
-soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
-soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
-soccers2.push(new Soccer("Arion", 15, "soccers_img/descarga.jpeg"))
+soccers2.push(new Soccer("Mark", 15, "https://static.wikia.nocookie.net/inazuma/images/f/f9/%28IJ%29_Mark_%28PR%29.png/revision/latest?cb=20230909202000&path-prefix=es"))
+soccers2.push(new Soccer("Jack", 15, "https://static.wikia.nocookie.net/inazuma/images/6/69/%28IJ%29_Jack.png/revision/latest?cb=20230909201948&path-prefix=es"))
+soccers2.push(new Soccer("Nathan", 17, "https://static.wikia.nocookie.net/inazuma/images/6/64/%28IJ%29_Nathan.png/revision/latest?cb=20230909202003&path-prefix=es"))
+soccers2.push(new Soccer("Hurley", 17, "https://static.wikia.nocookie.net/inazuma/images/9/9c/%28IJ%29_Hurley.png/revision/latest?cb=20230909201944&path-prefix=es"))
+soccers2.push(new Soccer("Scott", 14, "https://static.wikia.nocookie.net/inazuma/images/8/82/%28IJ%29_Scotty.png/revision/latest?cb=20230909202012&path-prefix=es"))
+soccers2.push(new Soccer("Archer", 15, "https://static.wikia.nocookie.net/inazuma/images/4/42/%28IJ%29_Archer.png/revision/latest?cb=20230909201926&path-prefix=es"))
+soccers2.push(new Soccer("Caleb", 16, "https://static.wikia.nocookie.net/inazuma/images/7/7d/%28IJ%29_Caleb.png/revision/latest?cb=20230909201937&path-prefix=es"))
+soccers2.push(new Soccer("Shawn", 16, "https://static.wikia.nocookie.net/inazuma/images/a/a7/%28IJ%29_Shawn.png/revision/latest?cb=20230909202015&path-prefix=es"))
+soccers2.push(new Soccer("Axel", 16, "https://static.wikia.nocookie.net/inazuma/images/3/3c/%28IJ%29_Axel.png/revision/latest?cb=20230909201935&path-prefix=es"))
+soccers2.push(new Soccer("Austin", 14, "https://static.wikia.nocookie.net/inazuma/images/0/0e/%28IJ%29_Austin.png/revision/latest?cb=20230909201930&path-prefix=es"))
+*/
 
 let team1 = new Team("Dark Knights", "The most powerfull Knights!", "img/images.jpeg", "27/08/1999");
-let team2 = new Team("Raimon", "Old, but still good", "img/raimon.jpg", "18/07/1985",soccers1);
-let team3 = new Team("New Raimon", "The new Version!", "img/newraimon.png", "27/08/2008", soccers1);
-let team4 = new Team("Emperadores Oscuros", "Back again", "img/emOsc.png", "22/04/2010",soccers2);
-let team5 = new Team("Instituto Zeus", "Gods in the game", "https://static.wikia.nocookie.net/inazuma/images/f/ff/Escudo_Zeus_FF.png/revision/latest/scale-to-width-down/110?cb=20210620190427&path-prefix=es", "3/01/1989",soccers2);
-let team6 = new Team("Raimon A", "Secundary of the original", "https://static.wikia.nocookie.net/inazuma/images/b/b3/Ultra_Raimon_%28Logo%29.png/revision/latest?cb=20151228011758&path-prefix=es", "02/07/2002",soccers2);
-let team7 = new Team("Galaxy Eleven", "The next champion in the galaxy!", "https://static.wikia.nocookie.net/inazuma/images/b/bd/Earth_Eleven_Emblema.png/revision/latest?cb=20210628231658&path-prefix=es", "30/07/2021",soccer1);
-let team8 = new Team("Genesis", "The monsters of the space", "https://static.wikia.nocookie.net/inazuma/images/a/a2/Logo_de_g%C3%A9nesis.png/revision/latest?cb=20120423114023&path-prefix=es", "???",soccers2);
-let team9 = new Team("Gir", "The powerfull lovers of the future!", "https://static.wikia.nocookie.net/inazuma/images/1/11/Gir_Emblema.png/revision/latest?cb=20210628154723&path-prefix=es", "??/??/2300",soccers2);
-let team10 = new Team("Dark angel", "Divine glory to the dark gods!!", "https://static.wikia.nocookie.net/inazuma/images/1/1b/%C3%81ngel_Oscuro_Emblema.png/revision/latest?cb=20141002231431&path-prefix=es", "06/06/1666",soccers1);
+let team2 = new Team("Raimon", "Old, but still good", "img/raimon.jpg", "18/07/1985");
+let team3 = new Team("New Raimon", "The new Version!", "img/newraimon.png", "27/08/2008");
+let team4 = new Team("Emperadores Oscuros", "Back again", "img/emOsc.png", "22/04/2010");
+let team5 = new Team("Instituto Zeus", "Gods in the game", "https://static.wikia.nocookie.net/inazuma/images/f/ff/Escudo_Zeus_FF.png/revision/latest/scale-to-width-down/110?cb=20210620190427&path-prefix=es", "3/01/1989");
+let team6 = new Team("Raimon A", "Secundary of the original", "https://static.wikia.nocookie.net/inazuma/images/b/b3/Ultra_Raimon_%28Logo%29.png/revision/latest?cb=20151228011758&path-prefix=es", "02/07/2002");
+let team7 = new Team("Galaxy Eleven", "The next champion in the galaxy!", "https://static.wikia.nocookie.net/inazuma/images/b/bd/Earth_Eleven_Emblema.png/revision/latest?cb=20210628231658&path-prefix=es", "30/07/2021");
+let team8 = new Team("Genesis", "The monsters of the space", "https://static.wikia.nocookie.net/inazuma/images/a/a2/Logo_de_g%C3%A9nesis.png/revision/latest?cb=20120423114023&path-prefix=es", "???");
+let team9 = new Team("Gir", "The powerfull lovers of the future!", "https://static.wikia.nocookie.net/inazuma/images/1/11/Gir_Emblema.png/revision/latest?cb=20210628154723&path-prefix=es", "??/??/2300");
+let team10 = new Team("Dark angel", "Divine glory to the dark gods!!", "https://static.wikia.nocookie.net/inazuma/images/1/1b/%C3%81ngel_Oscuro_Emblema.png/revision/latest?cb=20141002231431&path-prefix=es", "06/06/1666");
 
 teams.set(team1.name, team1)
 teams.set(team2.name, team2)
@@ -160,7 +165,7 @@ function more_info(eq_name) {
         alert("This team doesn't exist")
     } else {
         displayMoreInfoTeam(teams.get(eq_name))
-        document.getElementById("imgEq").src = teams.get(eq_name).img
-        document.getElementById("soccers").innerHTML = getAllHtmlSoccers(teams.get(eq_name).soccers)
+        //document.getElementById("imgEq").src = teams.get(eq_name).img
+        //document.getElementById("soccers").innerHTML = getAllHtmlSoccers(teams.get(eq_name).soccers)
     }
 } 
