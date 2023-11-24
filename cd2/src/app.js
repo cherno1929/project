@@ -3,7 +3,6 @@ import mustacheExpress from 'mustache-express'
 import bodyParser from 'body-parser'
 import { __dirname } from './dirname.js'
 import router1  from './router1.js'
-//import router2  from './router2.js'
 
 const app = express()
 

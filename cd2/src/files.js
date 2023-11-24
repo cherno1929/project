@@ -1,5 +1,32 @@
+class Teams {
+    constructor(){
+        this.team = new Map()
+    }
 
-var teams = new Map()
+    set(teamx){
+        this.team.set(teamx.name, teamx)
+    }
+
+    get(name){
+        return this.team.get(name)
+    }
+
+    delete(name){
+        this.team.delete(name)
+    }
+
+    createTeam(name, descr, img, date, soccers,clasified){
+        let newTeam = new Team(name, descr, img, date, soccers,clasified)
+        this.set(newTeam)
+    }
+
+    addSoccer(nameTeam, nameSoccer, ageSoccer, imgSoccer){
+        let newSoccer = new Soccer(nameSoccer,ageSoccer,imgSoccer)
+        this.team.get(nameTeam).soccers.push(newSoccer)
+    }
+}
+
+var teams = new Teams()
 
 class Team {
     constructor(name, descr, img, date, soccers,clasified) {
@@ -7,6 +34,7 @@ class Team {
         this.descr = descr
         this.img = img
         this.date = date
+        this.clasified = clasified
         if (soccers === null || soccers === undefined) {
             this.soccers = []
         } else {
@@ -43,13 +71,13 @@ let team9 = new Team("Gir", "The powerfull lovers of the future!", "https://stat
 let team10 = new Team("Dark angel", "Divine glory to the dark gods!!", "https://static.wikia.nocookie.net/inazuma/images/1/1b/%C3%81ngel_Oscuro_Emblema.png/revision/latest?cb=20141002231431&path-prefix=es", "06/06/1666");
 let team2 = new Team("Raimon", "Old, but still good", "https://files.cults3d.com/uploaders/22012644/illustration-file/5ac307a2-a210-4fd4-ab1d-c43d7d7ac961/raimon.jpg", "18/07/1985", soccers2);
 
-teams.set(team2.name, team2)
+teams.set(team2)
 
-teams.set(team5.name, team5)
-teams.set(team6.name, team6)
-teams.set(team7.name, team7)
-teams.set(team8.name, team8)
-teams.set(team9.name, team9)
-teams.set(team10.name, team10)
+teams.set(team5)
+teams.set(team6)
+teams.set(team7)
+teams.set(team8)
+teams.set(team9)
+teams.set(team10)
 
 export default teams

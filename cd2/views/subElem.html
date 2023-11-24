@@ -74,7 +74,7 @@
                 <button class="btn btn-outline-warning btnGoBack" onclick="goBackToTeams()">Edit</button>
               </div>
               <div class="centerButtons">
-                <button class="btn btn-outline-danger btnGoBack" onclick="goBackToTeams()">Delete</button>
+                <button class="btn btn-outline-danger btnGoBack" onclick="location.href='/deleteTeam?name={{name}}'">Delete</button>
               </div>
             </div>
             <br>
@@ -117,29 +117,31 @@
         </div>
         <!--SUB ELEMENT FORM-->
         <div class="subElementDivForm">
-          <form class="subElementForm">
+          <form class="subElementForm" method="post" action="/createSoccer?name={{name}}">
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control form-control-lg" id="eq_img"
-                  placeholder="Name of soccer like 'El bicho'">
+                  placeholder="Name of soccer like 'El bicho'" name="name">
               </div>
             </div>
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Age</label>
               <div class="col-sm-10">
-                <input type="number" class="form-control form-control-lg" id="eq_img" placeholder="Age of soccer">
+                <input type="number" class="form-control form-control-lg" id="eq_img" placeholder="Age of soccer" name="age">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Image</label>
               <div class="col-sm-10">
-                <input type="url" class="form-control form-control-lg" id="eq_img" placeholder="url of image">
+                <input type="url" class="form-control form-control-lg" id="eq_img" placeholder="url of image" name="img">
               </div>
             </div>
+            <br>
+            <button type="submit" class="btn btn-outline-success submitSubForm">Add new Soccer</button>
           </form>
-          <button type="submit" class="btn btn-outline-success submitSubForm">Add new Soccer</button>
+          
         </div>
         <br>
         <button class="btn btn-outline-primary submitSubForm" onclick="location.href = '/'">Go Back</button>
