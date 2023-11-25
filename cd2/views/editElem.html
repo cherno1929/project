@@ -19,7 +19,7 @@
   <!-- Responsive navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand">Football League</a>
+      <a class="navbar-brand">INAZUMA TEAMS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
           class="navbar-toggler-icon"></span></button>
@@ -36,76 +36,58 @@
   </nav>
   <!-- Page content-->
   <div class="container">
+
     <div class="row" id="main_page">
       <!-- Pagina de creación-->
       <div class="col-lg-2"></div>
 
       <div class="col-lg-8">
 
-        <div id="form_Element" class="card" style="display: none;">
-          <form class="flexObjCol mainFormElement">
+        <div id="form_Element" class="card">
+          <form class="flexObjCol mainFormElement" method="post" action="/confirmEditTeam?name={{name}}">
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="eq_name" placeholder="Inazuma Eleven">
+                <input type="text" class="form-control form-control-lg" id="eq_name" name="name" value="{{name}}">
               </div>
             </div>
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Description</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control form-control-lg" id="eq_description"
-                  placeholder="Is the greates team!">
+                <input type="text" class="form-control form-control-lg" id="eq_description" name="descr"
+                  value="{{descr}}">
               </div>
             </div>
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Date of creation</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control form-control-lg" id="eq_date" placeholder="02/12/1999">
+                <input type="date" name="date" class="form-control form-control-lg" id="eq_date" value="{{date}}">
               </div>
             </div>
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Image</label>
               <div class="col-sm-10">
-                <input type="url" class="form-control form-control-lg" id="eq_img" placeholder="url of image">
+                <input type="url" class="form-control form-control-lg" name="img" id="eq_img" value="{{img}}">
               </div>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <input class="form-check-input" type="checkbox" name="clasified" id="flexCheckDefault">
               <label class="form-check-label biggerText" for="flexCheckDefault">
                 Classified in league
               </label>
             </div>
 
             <br>
-            <button type="submit" class="btn btn-outline-success btnConfElem" onclick="createTeam()">Confirm</button>
+            <button type="submit" class="btn btn-outline-success btnConfElem">Confirm</button>
           </form>
         </div>
 
-        <!-- Nested row for non-featured blog posts-->
-        <!-- 1º Column -->
-        <div class="row" id="main_Body">
-          <div class="flexObj" id="teams_zone">
-            <!-- Teams-->
-            {{#teams}}
-            <div class="card mb-4">
-              <img class="card-img-top" src={{img}}>
-              <div class="card-body">
-                <div class="small text-muted">{{date}}</div>
-                <h2 class="card-title h4">{{name}}</h2>
-                <p class="card-text">{{descr}}</p>
-                <button class="btn btn-primary" onclick="location.href='/team?name={{name}}'">Read more →</button>
-              </div>
-            </div>
-            {{/teams}}
-            <!-- Teams-->
-          </div>
-        </div>
         <br>
         <!-- Create / Edit buttons-->
         <nav aria-label="...">
           <ul class="pagination pagination-lg">
-            <li class="page-item"><a class="page-link" onclick="location.href='/createElementForm'" id="create_Button">Create team</a>
+            <li class="page-item"><a class="page-link" onclick="location.href='/team?name={{name}}'" id="create_Button">Go Back</a>
             </li>
           </ul>
         </nav>

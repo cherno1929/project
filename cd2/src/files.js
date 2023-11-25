@@ -20,6 +20,11 @@ class Teams {
         this.set(newTeam)
     }
 
+    /*getAuxTeam(name, descr, img, date, soccers,clasified){
+        let auxTeam = new Team(name, descr, img, date, soccers,clasified)
+        return auxTeam
+    }*/
+
     addSoccer(nameTeam, nameSoccer, ageSoccer, imgSoccer){
         let newSoccer = new Soccer(nameSoccer,ageSoccer,imgSoccer)
         this.team.get(nameTeam).soccers.push(newSoccer)
