@@ -44,8 +44,8 @@ router.get('/editTeam', (req, res) => {
 })
 
 router.post('/createTeam', (req, res) => {
-    teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, [], req.body.check)
-    res.redirect('/')
+    teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, [], req.body.clasified)
+    res.redirect('/team?name=' + req.body.name)
 })
 
 router.post('/createSoccer', (req, res) => {
@@ -58,7 +58,7 @@ router.post('/confirmEditTeam', (req, res) => {
 
     if (team.name != req.body.name) {
         let copySoccers = [...team.soccers]
-        teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, copySoccers, req.body.check)
+        teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, copySoccers, req.body.clasified)
         teams.delete(team.name)
     } else {
         team.descr = req.body.descr
