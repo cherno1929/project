@@ -75,7 +75,7 @@ router.post('/createTeam', (req, res) => {
 
 router.post('/createSoccer', (req, res) => {
     let key = req.query.name
-    if (req.body.name == '' || req.body.img == '') {
+    if (req.body.name == '' || req.body.img == '' || req.body.age == '' || teams.get(req.query.name).soccers.has(req.body.name)) {
         let team = Array.from(teams.get(key).soccers.values())
         res.render('subElem', {
             "name": teams.get(key).name,
@@ -83,8 +83,10 @@ router.post('/createSoccer', (req, res) => {
             "date": teams.get(key).date,
             "img": teams.get(key).img,
             "clasified": teams.get(key).clasified,
-            "no_name": true,
-            "no_img": true,
+            "no_name": req.body.name == '',
+            "no_img": req.body.img == '',
+            "no_age" : req.body.age == '',
+            "name_exist" : teams.get(req.query.name).soccers.has(req.body.name),
             "teams" : team
         })
     } else {

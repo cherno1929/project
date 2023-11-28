@@ -137,6 +137,25 @@
               </div>
               {{/no_img}}
 
+              {{#no_age}}
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                  Error : Falta la edad
+                </div>
+              </div>
+              {{/no_age}}
+
+              {{#name_exist}}
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                  Error : Este jugador ya existe
+                </div>
+              </div>
+              {{/name_exist}}
+              
+
             </div>
             <div class="form-group row">
               <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
