@@ -23,12 +23,13 @@ router.get('/createElementForm', (req, res) => {
 })
 
 router.get('/team', (req, res) => {
-    let team = teams.get(req.query.name).soccers
+    let team = Array.from(teams.get(req.query.name).soccers.values())
     res.render("subElem", {
         "name": teams.get(req.query.name).name,
         "descr": teams.get(req.query.name).descr,
         "date": teams.get(req.query.name).date,
         "img": teams.get(req.query.name).img,
+        "clasified": teams.get(req.query.name).clasified,
         "teams": team
     })
 })
@@ -40,33 +41,97 @@ router.get('/editTeam', (req, res) => {
         "descr": teams.get(key).descr,
         "date": teams.get(key).date,
         "img": teams.get(key).img,
+        "clasified": teams.get(key).clasified
     })
 })
 
 router.post('/createTeam', (req, res) => {
-    teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, [], req.body.clasified)
-    res.redirect('/team?name=' + req.body.name)
+    if (req.body.name == '' || req.body.descr == '' || req.body.img == '') {
+        let exist = teams.has(req.body.name)
+        res.render('errorForm', {
+            "no_name": req.body.name == '',
+            "no_descr": req.body.descr == '',
+            "no_img": req.body.img == '',
+            "team_exist": exist
+        })
+    } else {
+        if (teams.has(req.body.name)) {
+            res.render('errorForm', {
+                "team_exist": true
+            })
+        } else {
+            let clasf = req.body.clasified == 'on'
+            let soccers = null
+            let date = req.body.date
+            console.log(date)
+            if (date == '') {
+                date = new Date().toJSON().slice(0, 10);
+            }
+            teams.createTeam(req.body.name, req.body.descr, req.body.img, date, soccers, clasf)
+            res.redirect('/team?name=' + req.body.name)
+        }
+    }
 })
 
 router.post('/createSoccer', (req, res) => {
-    teams.addSoccer(req.query.name, req.body.name, req.body.age, req.body.img)
-    res.redirect('team?name=' + req.query.name)
+    let key = req.query.name
+    if (req.body.name == '' || req.body.img == '') {
+        let team = Array.from(teams.get(key).soccers.values())
+        res.render('subElem', {
+            "name": teams.get(key).name,
+            "descr": teams.get(key).descr,
+            "date": teams.get(key).date,
+            "img": teams.get(key).img,
+            "clasified": teams.get(key).clasified,
+            "no_name": true,
+            "no_img": true,
+            "teams" : team
+        })
+    } else {
+        teams.addSoccer(req.query.name, req.body.name, req.body.age, req.body.img)
+        res.redirect('team?name=' + req.query.name)
+    }
 })
 
 router.post('/confirmEditTeam', (req, res) => {
-    let team = teams.get(req.query.name)
-
-    if (team.name != req.body.name) {
-        let copySoccers = [...team.soccers]
-        teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, copySoccers, req.body.clasified)
-        teams.delete(team.name)
+    let key = req.query.name
+    if (req.body.name == '' || req.body.descr == '' || req.body.img == '') {
+        res.render('editElem', {
+            "no_name": req.body.name == '',
+            "no_descr": req.body.descr == '',
+            "no_img": req.body.img == '',
+            "name": teams.get(key).name,
+            "descr": teams.get(key).descr,
+            "date": teams.get(key).date,
+            "img": teams.get(key).img,
+            "clasified": teams.get(key).clasified
+        })
     } else {
-        team.descr = req.body.descr
-        team.date = req.body.date
-        team.img = req.body.img
-        team.clasified = req.body.clasified
+        if (teams.has(req.body.name) && req.body.name != req.query.name) {
+            res.render('editElem', {
+                "team_exist": true,
+                "name": teams.get(key).name,
+                "descr": teams.get(key).descr,
+                "date": teams.get(key).date,
+                "img": teams.get(key).img,
+                "clasified": teams.get(key).clasified
+            })
+        } else {
+            let team = teams.get(req.query.name)
+
+            if (team.name != req.body.name) {
+                let copySoccers = [...team.soccers]
+                teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, copySoccers, req.body.clasified)
+                teams.delete(team.name)
+            } else {
+                team.descr = req.body.descr
+                team.date = req.body.date
+                team.img = req.body.img
+                team.clasified = req.body.clasified
+            }
+            res.redirect('team?name=' + req.body.name)
+        }
     }
-    res.redirect('team?name=' + req.body.name)
 })
 
 export default router;

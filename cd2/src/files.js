@@ -16,7 +16,8 @@ class Teams {
     }
 
     createTeam(name, descr, img, date, soccers,clasified){
-        let newTeam = new Team(name, descr, img, date, soccers,clasified)
+        let newTeam = new Team(name, descr, img, date, null,clasified)
+        newTeam.soccers = new Map()
         this.set(newTeam)
     }
 
@@ -27,8 +28,13 @@ class Teams {
 
     addSoccer(nameTeam, nameSoccer, ageSoccer, imgSoccer){
         let newSoccer = new Soccer(nameSoccer,ageSoccer,imgSoccer)
-        this.team.get(nameTeam).soccers.push(newSoccer)
+        this.team.get(nameTeam).soccers.set(newSoccer.name,newSoccer)
     }
+
+    has(key){
+        return this.team.has(key)
+    }
+
 }
 
 var teams = new Teams()
@@ -57,6 +63,7 @@ class Soccer {
 }
 
 let soccers2 = []
+/*
 soccers2.push(new Soccer("Mark", 15, "https://ih1.redbubble.net/image.275077163.3286/raf,750x1000,075,t,FFFFFF:97ab1c12de.u3.jpg"))
 soccers2.push(new Soccer("Jack", 15, "https://static.wikia.nocookie.net/inazuma/images/6/69/%28IJ%29_Jack.png/revision/latest?cb=20230909201948&path-prefix=es"))
 soccers2.push(new Soccer("Nathan", 17, "https://static.wikia.nocookie.net/inazuma/images/6/64/%28IJ%29_Nathan.png/revision/latest?cb=20230909202003&path-prefix=es"))
@@ -67,6 +74,7 @@ soccers2.push(new Soccer("Caleb", 16, "https://static.wikia.nocookie.net/inazuma
 soccers2.push(new Soccer("Shawn", 16, "https://static.wikia.nocookie.net/inazuma/images/a/a7/%28IJ%29_Shawn.png/revision/latest?cb=20230909202015&path-prefix=es"))
 soccers2.push(new Soccer("Axel", 16, "https://static.wikia.nocookie.net/inazuma/images/3/3c/%28IJ%29_Axel.png/revision/latest?cb=20230909201935&path-prefix=es"))
 soccers2.push(new Soccer("Austin", 14, "https://static.wikia.nocookie.net/inazuma/images/0/0e/%28IJ%29_Austin.png/revision/latest?cb=20230909201930&path-prefix=es"))
+*/
 
 let team5 = new Team("Instituto Zeus", "Gods in the game", "https://i.ibb.co/rKh0skm/Escudo-Zeus-FF.webp");
 let team6 = new Team("Raimon A", "Secundary of the original", "https://static.wikia.nocookie.net/inazuma/images/b/b3/Ultra_Raimon_%28Logo%29.png/revision/latest?cb=20151228011758&path-prefix=es", "02/07/2002");
