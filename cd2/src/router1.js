@@ -124,8 +124,8 @@ router.post('/confirmEditTeam', (req, res) => {
             let team = teams.get(req.query.name)
 
             if (team.name != req.body.name) {
-                let copySoccers = [...team.soccers]
-                teams.createTeam(req.body.name, req.body.descr, req.body.img, req.body.date, copySoccers, req.body.clasified)
+                let copySoccers = new Map(team.soccers)
+                teams.editTeam(req.body.name, req.body.descr, req.body.img, req.body.date, copySoccers, req.body.clasified)
                 teams.delete(team.name)
             } else {
                 team.descr = req.body.descr
