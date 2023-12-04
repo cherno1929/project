@@ -75,7 +75,8 @@ router.post('/createTeam', (req, res) => {
 
 router.post('/createSoccer', (req, res) => {
     let key = req.query.name
-    if (req.body.name == '' || req.body.img == '' || req.body.age == '' || teams.get(req.query.name).soccers.has(req.body.name)) {
+    let validAge = parseInt(req.body.age) < 0
+    if (req.body.name == '' || req.body.img == '' || req.body.age == '' || teams.get(req.query.name).soccers.has(req.body.name) || validAge) {
         let team = Array.from(teams.get(key).soccers.values())
         res.render('subElem', {
             "name": teams.get(key).name,
@@ -86,6 +87,7 @@ router.post('/createSoccer', (req, res) => {
             "no_name": req.body.name == '',
             "no_img": req.body.img == '',
             "no_age" : req.body.age == '',
+            "negative_age" : validAge,
             "name_exist" : teams.get(req.query.name).soccers.has(req.body.name),
             "teams" : team
         })
