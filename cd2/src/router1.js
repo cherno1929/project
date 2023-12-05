@@ -1,6 +1,6 @@
 import express from 'express';
 import { __dirname } from './dirname.js'
-import teams from './files.js'
+import teams from './teamService.js'
 
 const dirStaticHtml = __dirname.substring(0, __dirname.length - 4) + '/public/html/'
 
@@ -86,10 +86,10 @@ router.post('/createSoccer', (req, res) => {
             "clasified": teams.get(key).clasified,
             "no_name": req.body.name == '',
             "no_img": req.body.img == '',
-            "no_age" : req.body.age == '',
-            "negative_age" : validAge,
-            "name_exist" : teams.get(req.query.name).soccers.has(req.body.name),
-            "teams" : team
+            "no_age": req.body.age == '',
+            "negative_age": validAge,
+            "name_exist": teams.get(req.query.name).soccers.has(req.body.name),
+            "teams": team
         })
     } else {
         teams.addSoccer(req.query.name, req.body.name, req.body.age, req.body.img)
@@ -124,15 +124,15 @@ router.post('/confirmEditTeam', (req, res) => {
             let team = teams.get(req.query.name)
 
             if (team.name != req.body.name) {
-                let copySoccers = new Map(team.soccers)
-                teams.editTeam(req.body.name, req.body.descr, req.body.img, req.body.date, copySoccers, req.body.clasified)
+                teams.team.set(req.body.name, teams.get(team.name))
                 teams.delete(team.name)
-            } else {
+                team.name = req.body.name
+            }
                 team.descr = req.body.descr
                 team.date = req.body.date
                 team.img = req.body.img
                 team.clasified = req.body.clasified
-            }
+            
             res.redirect('team?name=' + req.body.name)
         }
     }
