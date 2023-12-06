@@ -63,7 +63,6 @@ router.post('/createTeam', (req, res) => {
             let clasf = req.body.clasified == 'on'
             let soccers = null
             let date = req.body.date
-            console.log(date)
             if (date == '') {
                 date = new Date().toJSON().slice(0, 10);
             }
@@ -132,7 +131,6 @@ router.post('/confirmEditTeam', (req, res) => {
                 team.date = req.body.date
                 team.img = req.body.img
                 team.clasified = req.body.clasified
-            
             res.redirect('team?name=' + req.body.name)
         }
     }
