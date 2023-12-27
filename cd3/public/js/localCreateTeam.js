@@ -1,28 +1,33 @@
+function isValidUrl(urlString) {
+  var urlPattern = new RegExp('^(https?:\\/\\/)?' + // validate protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // validate domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // validate OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // validate port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // validate query string
+    '(\\#[-a-z\\d_]*)?$', 'i'); // validate fragment locator
+  return !!urlPattern.test(urlString);
+}
+
+function codeError(tipoError) {
+  return `<div class="alert alert-danger d-flex align-items-center" role="alert" id="${tipoError}">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+    <use xlink:href="#exclamation-triangle-fill" />
+  </svg>
+  <div>
+    Error : ${tipoError}
+  </div>
+  </div>`
+}
+
 function checkTitle(formData) {
   let name = formData.get('name')
   if (name == "") {
-    errZone.innerHTML +=
-      `<div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-          <use xlink:href="#exclamation-triangle-fill" />
-        </svg>
-        <div>
-          Error : Falta el nombre
-        </div>
-        </div>`
+    errZone.innerHTML += codeError("Falta el nombre")
     return false
   }
   let firstChar = name.charAt(0)
   if (firstChar !== firstChar.toUpperCase()) {
-    errZone.innerHTML +=
-      `<div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-          <use xlink:href="#exclamation-triangle-fill" />
-        </svg>
-        <div>
-          Error : El nombre debe de empezar en mayuscula
-        </div>
-        </div>`
+    errZone.innerHTML += codeError("El nombre debe de empezar en mayuscula")
     return false
   }
   return true
@@ -31,28 +36,12 @@ function checkTitle(formData) {
 function checkDescr(formData) {
   let descr = formData.get('descr')
   if (descr == "") {
-    errZone.innerHTML +=
-      `<div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-          <use xlink:href="#exclamation-triangle-fill" />
-        </svg>
-        <div>
-          Error : Falta la descripción
-        </div>
-        </div>`
+    errZone.innerHTML += codeError("Falta la descripción")
     return false
   }
   console.log(descr.length)
   if (descr.length > 500 || descr.length < 50) {
-    errZone.innerHTML +=
-      `<div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-          <use xlink:href="#exclamation-triangle-fill" />
-        </svg>
-        <div>
-          Error : La descripción debe tener de 50 a 500 caracteres
-        </div>
-        </div>`
+    errZone.innerHTML += codeError("La descripción debe tener de 50 a 500 caracteres")
     return false
   }
   return true
@@ -61,19 +50,13 @@ function checkDescr(formData) {
 function checkImg(formData) {
   let img = formData.get('img')
   if (img == '') {
-    errZone.innerHTML +=
-      `<div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-          <use xlink:href="#exclamation-triangle-fill" />
-        </svg>
-        <div>
-          Error : Falta la imagen
-        </div>
-        </div>`
+    errZone.innerHTML += codeError("Falta la imagen")
     return false
   }
-
-  // Queda otra comprobación
+  if (isValidUrl(img)) {
+    errZone.innerHTML += codeError("La url no es valida")
+    return false
+  }
 
   return true
 }
@@ -88,7 +71,7 @@ form.addEventListener('submit', (event) => {
   let formData = new FormData(form)
 
   errZone.innerHTML = ""
-  
+
   let titleCh = checkTitle(formData)
   let desctCh = checkDescr(formData)
   let imgCh = checkImg(formData)
@@ -106,21 +89,15 @@ form.addEventListener('submit', (event) => {
   }
 })
 
-async function checkTeamDisponible(){
-  let nameTeamValue = document.getElementById('eq_name').value 
+async function checkTeamDisponible() {
+  let nameTeamValue = document.getElementById('eq_name').value
   let response = await fetch(`/teamsDisponible?name=${nameTeamValue}`)
 
   let responseObj = await response.json()
 
-  if (responseObj.disponible){
-    errZone.innerHTML +=
-      `<div class="alert alert-danger d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
-          <use xlink:href="#exclamation-triangle-fill" />
-        </svg>
-        <div>
-          Error : Nombre ${nameTeamValue} no disponible
-        </div>
-        </div>`
+  if (responseObj.disponible) {
+    errZone.innerHTML = codeError(`Nombre no disponible`)
+  }else{
+    errZone.innerHTML = ""
   }
 }

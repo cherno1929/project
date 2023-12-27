@@ -14,4 +14,15 @@ async function loadMoreElements(){
     cont_Loaded++
 } 
 
+async function searchTeam(){
+    let teamToSearch = document.getElementById("searchTeamBar").value 
+
+    let response = await fetch(`/searchTeam?name=${teamToSearch}`)
+
+    let loadedTeams = await response.text()
+
+    document.getElementById("teams_zone").innerHTML = loadedTeams
+
+}
+
 loadMoreElements()

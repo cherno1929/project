@@ -81,6 +81,19 @@ router.get('/loadMoreTeams', (req, res) => {
     })
 })
 
+router.get('/searchTeam', (req, res) => {
+    let nameToSearch = req.query.name
+    let teams1 = []
+    Array.from(teams.team.values()).forEach(element => {
+        if(element.name.includes(nameToSearch)){
+            teams1.push(element)
+        }
+    });
+    res.render("teamsToLoad", {
+        "teams": teams1
+    })
+})
+
 router.get('/teamsDisponible', (req, res) => {
     let response = {
         disponible : teams.has(req.query.name)
