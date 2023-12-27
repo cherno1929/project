@@ -94,6 +94,25 @@ router.get('/searchTeam', (req, res) => {
     })
 })
 
+router.get('/filterTeams', (req, res) => {
+    let filter = "true" === req.query.filter
+    let teams1 = []
+    if(filter){
+        teams.team.forEach(element => {
+            if(element.clasified){
+                teams1.push(element)
+            }
+        });
+    }else{
+        Array.from(teams.team.values()).forEach(element => {
+            teams1.push(element)
+        });
+    }
+    res.render("teamsToLoad", {
+        "teams": teams1
+    })
+})
+
 router.get('/teamsDisponible', (req, res) => {
     let response = {
         disponible : teams.has(req.query.name)
@@ -122,6 +141,19 @@ router.post('/createSoccer', (req, res) => {
     } else {
         teams.addSoccer(req.query.name, req.body.name, req.body.age, req.body.img)
         res.redirect('team?name=' + req.query.name)
+    }
+})
+
+router.post('/addSoccer', (req,res) => {
+    let key = req.query.name
+    let validAge = parseInt(req.body.age) < 0
+    if (!(req.body.name == '' || req.body.img == '' || req.body.age == '' || teams.get(req.query.name).soccers.has(req.body.name) || validAge)) {
+        teams.addSoccer(req.query.name, req.body.name, req.body.age, req.body.img)
+        res.render('soccersToLoad', {
+            'img' : req.body.img,
+            'name' : req.body.name,
+            'age' : req.body.age
+        })
     }
 })
 

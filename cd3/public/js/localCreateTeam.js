@@ -91,13 +91,19 @@ form.addEventListener('submit', (event) => {
 
 async function checkTeamDisponible() {
   let nameTeamValue = document.getElementById('eq_name').value
+
+  let firstChar = nameTeamValue.charAt(0)
+  if (firstChar !== firstChar.toUpperCase()) {
+    errZone.innerHTML = codeError("El nombre debe de empezar en mayuscula")
+  }else{
+    errZone.innerHTML = ""
+  }
+
   let response = await fetch(`/teamsDisponible?name=${nameTeamValue}`)
 
   let responseObj = await response.json()
 
   if (responseObj.disponible) {
-    errZone.innerHTML = codeError(`Nombre no disponible`)
-  }else{
-    errZone.innerHTML = ""
+    errZone.innerHTML += codeError(`Nombre no disponible`) 
   }
 }

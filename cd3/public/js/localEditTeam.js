@@ -64,6 +64,7 @@ function isValidUrl(urlString) {
   
   let form = document.querySelector('form')
   let errZone = document.getElementById('errorZone')
+  let orgName = document.getElementById("eq_name").value
   
   form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -81,25 +82,32 @@ function isValidUrl(urlString) {
       for (const pair of formData) {
         data.append(pair[0], pair[1]);
       }
-      fetch('/createTeam', {
+      fetch(`/confirmEditTeam?name=${orgName}`, {
         method: 'post',
         body: data
       })
-  
+      document.getElementById("create_Button").onclick = `location.href='/team?name=${formData.get("name")}'"`
     }
+
   })
 
 let teamName = document.getElementById('eq_name').value
 
-  async function checkTeamDisponible() {
-    let nameTeamValue = document.getElementById('eq_name').value
-    let response = await fetch(`/teamsDisponible?name=${nameTeamValue}`)
-  
-    let responseObj = await response.json()
-  
-    if (responseObj.disponible && teamName !== nameTeamValue) {
-      errZone.innerHTML = codeError(`Nombre no disponible`)
-    }else{
-      errZone.innerHTML = ""
-    }
+async function checkTeamDisponible() {
+  let nameTeamValue = document.getElementById('eq_name').value
+
+  let firstChar = nameTeamValue.charAt(0)
+  if (firstChar !== firstChar.toUpperCase()) {
+    errZone.innerHTML = codeError("El nombre debe de empezar en mayuscula")
+  }else{
+    errZone.innerHTML = ""
   }
+
+  let response = await fetch(`/teamsDisponible?name=${nameTeamValue}`)
+
+  let responseObj = await response.json()
+
+  if (responseObj.disponible) {
+    errZone.innerHTML += codeError(`Nombre no disponible`) 
+  }
+}

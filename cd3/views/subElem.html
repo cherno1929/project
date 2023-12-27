@@ -49,7 +49,7 @@
 
             <div class="form-group row">
               <h3>Name</h3>
-              <p>{{name}}</p>
+              <p id="nameOfTeam">{{name}}</p>
             </div>
 
             <div class="form-group row">
@@ -117,7 +117,7 @@
         </div>
         <!--SUB ELEMENT FORM-->
         <div class="subElementDivForm">
-          <form class="subElementForm" method="post" action="/createSoccer?name={{name}}">
+          <form class="subElementForm">
             <div id="errorZone">
               {{#no_name}}
               <div class="alert alert-danger d-flex align-items-center" role="alert">
@@ -187,7 +187,7 @@
               </div>
             </div>
             <br>
-            <button type="submit" class="btn btn-outline-success submitSubForm">Add new Soccer</button>
+            <button class="btn btn-outline-success submitSubForm">Add new Soccer</button>
           </form>
           
         </div>
@@ -209,7 +209,7 @@
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
-  <script src="scripts.js"></script>
+  <script src="js/localSubTeam.js"></script>
 </body>
 
 </html>

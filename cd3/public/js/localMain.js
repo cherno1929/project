@@ -25,4 +25,16 @@ async function searchTeam(){
 
 }
 
+async function filterTeam(){
+
+    let clsfVal = document.getElementById("clasified_Filter")
+
+    let response = await fetch(`/filterTeams?filter=${clsfVal.checked}`)
+
+    let loadedTeams = await response.text()
+
+    document.getElementById("teams_zone").innerHTML = loadedTeams
+
+}
+
 loadMoreElements()
