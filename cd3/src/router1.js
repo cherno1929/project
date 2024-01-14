@@ -72,6 +72,13 @@ router.post('/createTeam', (req, res) => {
     }
 })
 
+router.get('/loadMoreTeams_json', (req, res) => {
+    let from = parseInt(req.query.from)
+    let to = parseInt(req.query.to)
+    let teams1 = Array.from(teams.team.values()).slice(from, to)
+    res.json(teams1)
+})
+
 router.get('/loadMoreTeams', (req, res) => {
     let from = parseInt(req.query.from)
     let to = parseInt(req.query.to)
@@ -92,6 +99,17 @@ router.get('/searchTeam', (req, res) => {
     res.render("teamsToLoad", {
         "teams": teams1
     })
+})
+
+router.get('/searchTeam_json', (req, res) => {
+    let nameToSearch = req.query.name
+    let teams1 = []
+    Array.from(teams.team.values()).forEach(element => {
+        if(element.name.includes(nameToSearch)){
+            teams1.push(element)
+        }
+    });
+    res.json(teams1)
 })
 
 router.get('/filterTeams', (req, res) => {

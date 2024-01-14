@@ -65,7 +65,7 @@ function checkImg(formData) {
 let form = document.querySelector('form')
 let errZone = document.getElementById('errorZone')
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit',async (event) => {
   event.preventDefault()
 
   let formData = new FormData(form)
@@ -85,6 +85,17 @@ form.addEventListener('submit', (event) => {
       method: 'post',
       body: data
     })
+
+    //window.location.href = `/team?name=${formData.get("name")}`
+
+    let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
+      let responseObj = await response.json()
+
+      while(responseObj.disponible){
+        let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
+        let responseObj = await response.json()
+      }
+      window.location.href = `/team?name=${formData.get("name")}`
 
   }
 })

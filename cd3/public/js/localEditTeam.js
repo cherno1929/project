@@ -66,7 +66,7 @@ function isValidUrl(urlString) {
   let errZone = document.getElementById('errorZone')
   let orgName = document.getElementById("eq_name").value
   
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault()
   
     let formData = new FormData(form)
@@ -86,9 +86,16 @@ function isValidUrl(urlString) {
         method: 'post',
         body: data
       })
-      document.getElementById("create_Button").onclick = `location.href='/team?name=${formData.get("name")}'"`
-    }
+      let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
+      let responseObj = await response.json()
 
+      while(responseObj.disponible){
+        let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
+        let responseObj = await response.json()
+      }
+      window.location.href = `/team?name=${formData.get("name")}`
+     
+    }
   })
 
 let teamName = document.getElementById('eq_name').value
