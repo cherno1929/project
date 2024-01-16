@@ -82,19 +82,17 @@ function isValidUrl(urlString) {
       for (const pair of formData) {
         data.append(pair[0], pair[1]);
       }
-      fetch(`/confirmEditTeam?name=${orgName}`, {
+      let response = await fetch(`/confirmEditTeam?name=${orgName}`, {
         method: 'post',
         body: data
       })
-      let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
       let responseObj = await response.json()
-
-      while(responseObj.disponible){
-        let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
-        let responseObj = await response.json()
+      console.log(responseObj.changed)
+      if(responseObj.changed){
+        window.location.href = `/team?name=${formData.get("name")}`
+      }else{
+        alert("Fallo al modificar el equipo")
       }
-      window.location.href = `/team?name=${formData.get("name")}`
-     
     }
   })
 

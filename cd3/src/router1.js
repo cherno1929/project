@@ -177,27 +177,12 @@ router.post('/addSoccer', (req,res) => {
 
 router.post('/confirmEditTeam', (req, res) => {
     let key = req.query.name
+    let response = {changed : false}
     if (req.body.name == '' || req.body.descr == '' || req.body.img == '') {
-        res.render('editElem', {
-            "no_name": req.body.name == '',
-            "no_descr": req.body.descr == '',
-            "no_img": req.body.img == '',
-            "name": teams.get(key).name,
-            "descr": teams.get(key).descr,
-            "date": teams.get(key).date,
-            "img": teams.get(key).img,
-            "clasified": teams.get(key).clasified
-        })
+        res.json(response)
     } else {
         if (teams.has(req.body.name) && req.body.name != req.query.name) {
-            res.render('editElem', {
-                "team_exist": true,
-                "name": teams.get(key).name,
-                "descr": teams.get(key).descr,
-                "date": teams.get(key).date,
-                "img": teams.get(key).img,
-                "clasified": teams.get(key).clasified
-            })
+            res.json(response)
         } else {
             let team = teams.get(req.query.name)
 
@@ -210,7 +195,8 @@ router.post('/confirmEditTeam', (req, res) => {
                 team.date = req.body.date
                 team.img = req.body.img
                 team.clasified = req.body.clasified
-            res.redirect('team?name=' + req.body.name)
+            response.changed = true
+            res.json(response)
         }
     }
 })
