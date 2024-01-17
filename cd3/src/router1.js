@@ -46,19 +46,13 @@ router.get('/editTeam', (req, res) => {
 })
 
 router.post('/createTeam', (req, res) => {
+    let response = {ready : false}
     if (req.body.name == '' || req.body.descr == '' || req.body.img == '') {
         let exist = teams.has(req.body.name)
-        res.render('errorForm', {
-            "no_name": req.body.name == '',
-            "no_descr": req.body.descr == '',
-            "no_img": req.body.img == '',
-            "team_exist": exist
-        })
+        res.json(response)
     } else {
         if (teams.has(req.body.name)) {
-            res.render('errorForm', {
-                "team_exist": true
-            })
+            res.json(response)
         } else {
             let clasf = req.body.clasified == 'on'
             let soccers = null
@@ -67,7 +61,8 @@ router.post('/createTeam', (req, res) => {
                 date = new Date().toJSON().slice(0, 10);
             }
             teams.createTeam(req.body.name, req.body.descr, req.body.img, date, soccers, clasf)
-            res.redirect('/team?name=' + req.body.name)
+            response.ready = true
+            res.json(response)
         }
     }
 })

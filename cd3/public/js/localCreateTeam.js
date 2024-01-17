@@ -81,21 +81,17 @@ form.addEventListener('submit',async (event) => {
     for (const pair of formData) {
       data.append(pair[0], pair[1]);
     }
-    fetch('/createTeam', {
+    let response = await fetch('/createTeam', {
       method: 'post',
       body: data
     })
-
+    let responseObj = await response.json()
     //window.location.href = `/team?name=${formData.get("name")}`
-
-    let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
-      let responseObj = await response.json()
-
-      while(responseObj.disponible){
-        let response = await fetch(`/teamsDisponible?name=${formData.get("name")}`)
-        let responseObj = await response.json()
-      }
+    if (responseObj.ready){
       window.location.href = `/team?name=${formData.get("name")}`
+    }else{
+      alert("Error al crear equipo")
+    }
 
   }
 })
